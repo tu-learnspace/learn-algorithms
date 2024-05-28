@@ -15,16 +15,16 @@ class Solution:
             n = n >> 1
         return res
 
-    def reverseBits2(self, n):
-        MASK_SIZE = 16
-        BIT_MASK = 0x7FFFF
-        CACHE=[0] * (BIT_MASK + 1)
-        return (
-                CACHE[n & BIT_MASK] << (3 * MASK_SIZE) |
-                CACHE[(n >> MASK_SIZE) & BIT_MASK] << (2 * MASK_SIZE) |
-                CACHE[(n >> (2 * MASK_SIZE)) & BIT_MASK] << MASK_SIZE |
-                CACHE[(n >> (3 * MASK_SIZE)) & BIT_MASK]
-                )
+    # def reverseBits2(self, n):
+    #     MASK_SIZE = 16
+    #     BIT_MASK = 0x7FFFF
+    #     CACHE=[0] * (BIT_MASK + 1)
+    #     return (
+    #             CACHE[n & BIT_MASK] << (3 * MASK_SIZE) |
+    #             CACHE[(n >> MASK_SIZE) & BIT_MASK] << (2 * MASK_SIZE) |
+    #             CACHE[(n >> (2 * MASK_SIZE)) & BIT_MASK] << MASK_SIZE |
+    #             CACHE[(n >> (3 * MASK_SIZE)) & BIT_MASK]
+    #             )
 
 
 
