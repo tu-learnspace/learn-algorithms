@@ -57,13 +57,14 @@ class Solution(object):
         """
         if not head:
             return head
-        prev = None
+        prev = tmp = None
 
         while head:
-            ne = prev
+            tmp = prev
             prev = head
             head = head.next
-            prev.next = ne
+            prev.next = tmp
+
         return prev
 
 
