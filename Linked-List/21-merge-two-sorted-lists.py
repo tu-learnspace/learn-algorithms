@@ -5,9 +5,11 @@ https://leetcode.com/problems/merge-two-sorted-lists
 - Không edit gì trên 2 list hết, dùng 1 node_ảo để trỏ
 - Dùng 1 node_ảo ban đầu: res = node_ảo. Rồi cho node_ảo chạy thôi
 - 1 trong 2 list có thể sẽ hết trước, lúc này chỉ cần append list còn lại vô kết quả (vì list đã đc sorted)
+Mẹo rút ra (general luôn):
+- if not list1 or not list2: return list1 or list2: nếu 1 trong 2 thằng null thì return thằng còn lại ko null, đỡ phải 2 vòng if
 """
 
-# ================== LeetCode answer ==================
+# ================== LeetCode answer (based on LC simple LL implementation below) ==================
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
@@ -39,7 +41,7 @@ class Solution(object):
         return res.next  # bỏ đi cái "inf" ở đầu
 
 
-# ========================= My Solution (based on my DS implementation) =========================
+# ========================= My Solution (based on my DS implementation in index.py) =========================
 from index import LinkedList as ListNode
 from index import Node
 
