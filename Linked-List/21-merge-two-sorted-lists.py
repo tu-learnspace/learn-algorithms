@@ -2,10 +2,11 @@
 https://leetcode.com/problems/merge-two-sorted-lists
 
 3 điều rút ra:
-- Không thể đụng gì trên list1 list2 hết vì cho tụi nó trỏ tùm lum rồi (đến cuối cùng nó trỏ vô null/trỏ vô ptử cuối) -> phải dùng 1 node_ảo để keep track
 - Dùng 1 node_ảo ban đầu: res = node_ảo. Rồi cho node_ảo chạy thôi
+    - Có thể hơi confuse tạo sao res là kết quả được -> res nó chỉ là "đường vào" (ban đầu trỏ vô node_ảo)
+    - Không thể dùng lại list1/list2/node_ảo hết vì cho tụi nó trỏ tùm lum rồi (đến cuối cùng nó trỏ vô null/trỏ vô ptử cuối) -> lí do node_ảo sinh ra, là để thế mạng cho res
 - 1 trong 2 list có thể sẽ hết trước, lúc này chỉ cần append list còn lại vô kết quả (vì list đã đc sorted)
-- Có thể hơi confuse tạo sao res là kết quả được -> res nó chỉ là "đường vào" (ban đầu trỏ vô tmp)
+
 Mẹo rút ra (general luôn):
 - if not list1 or not list2: return list1 or list2: nếu 1 trong 2 thằng null thì return thằng còn lại ko null, đỡ phải 2 vòng if
 """
