@@ -14,6 +14,10 @@ và tiếp tục duyệt 2 qua 3
 from index import LinkedList
 
 class Solution(object):
+    """
+    Time: O(N)
+    Space: O(1)
+    """
     def reverseList(self, head):
         """
         :type head: ListNode

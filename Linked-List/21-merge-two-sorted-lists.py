@@ -18,6 +18,10 @@ Mẹo rút ra (general luôn):
 #         self.val = val
 #         self.next = next
 class Solution(object):
+    """
+    Time: O(n + m) (n, m là số node của list1, list2)
+    Space: O(1) (không dùng thêm gì ngoài tmp)
+    """
     def mergeTwoLists(self, list1, list2):
         """
         :type list1: Optional[ListNode]
