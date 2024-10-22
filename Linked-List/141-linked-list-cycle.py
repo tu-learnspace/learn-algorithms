@@ -17,6 +17,17 @@ Giải thích về cách 2:
 - Nếu có cycle thì con trỏ chạy nhanh sẽ gặp con trỏ chạy chậm
 - Nếu không có cycle thì con trỏ chạy nhanh sẽ gặp null trước con trỏ chạy chậm
 
+p1 đi được a bước thì p2 đi được 2a bước
+gọi x là số node của p1 đi đc trên vòng
+
+rùa gặp thỏ: vị trí rùa = vị trí thỏ
+=> a + x % b = a + (a + 2x) % b
+=> x % b = (a + 2x) % b
+=> (a + 2x - x) = k * b
+=> a + x = k * b (k là số nguyên)
+=> x = -a + kb (Chọn k nhỏ nhất cho x có nghĩa)
+-> Rùa và thỏ gặp nhau tại tọa độ x
+-> nếu tại vị trí đó mà đi thêm a bước nữa, rùa sẽ vào vị trí node bắt đầu của cycle
 
 """
 
@@ -34,25 +45,25 @@ class Solution(object):
         :rtype: bool
         """
         # C1: use set
-        # tmp = set()
-        #
-        # while head:
-        #     if head in tmp:
-        #         return True
-        #     tmp.add(head)
-        #     head = head.next
-        #
-        # return False
+        tmp = set()
 
-        # C2: use 2 pointers
-        fast = slow = head
-
-        while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
-            if fast == slow:
+        while head:
+            if head in tmp:
                 return True
+            tmp.add(head)
+            head = head.next
 
         return False
+
+        # C2: use 2 pointers
+        # fast = slow = head
+        #
+        # while fast and fast.next:
+        #     fast = fast.next.next
+        #     slow = slow.next
+        #     if fast == slow:
+        #         return True
+        #
+        # return False
 
 
