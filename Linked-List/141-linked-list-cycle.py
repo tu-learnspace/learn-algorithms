@@ -8,7 +8,15 @@ Cách 1:
 Lưu ý: Đề bài không ràng buộc giá trị không bị lặp lại -> giá trị có thể bị lặp -> lưu cả node vào set luôn chứ ko chỉ node.value
 
 
-Cách 2:
+Cách 2: Slow and Fast pointers
+Dùng 2 con trỏ, 1 con chạy nhanh, 1 con chạy chậm. Nếu 2 con trỏ gặp nhau thì return True
+- Time: O(N)
+- Space: O(1)
+
+Giải thích về cách 2:
+- Nếu có cycle thì con trỏ chạy nhanh sẽ gặp con trỏ chạy chậm
+- Nếu không có cycle thì con trỏ chạy nhanh sẽ gặp null trước con trỏ chạy chậm
+
 
 """
 
@@ -26,13 +34,25 @@ class Solution(object):
         :rtype: bool
         """
         # C1: use set
-        tmp = set()
+        # tmp = set()
+        #
+        # while head:
+        #     if head in tmp:
+        #         return True
+        #     tmp.add(head)
+        #     head = head.next
+        #
+        # return False
 
-        while head:
-            if head in tmp:
+        # C2: use 2 pointers
+        fast = slow = head
+
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
                 return True
-            tmp.add(head)
-            head = head.next
 
         return False
+
 

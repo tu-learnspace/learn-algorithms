@@ -6,9 +6,9 @@ Tuy nhiên, Space thì có thể ối ưu từ O(N) xuống O(1) bằng cách d�
 
 VD:
 1 -> 2 -> 3 -> 4 -> 5
-thì lúc duyệt 1 qua 2 thì mình trỏ lại
+thì lúc duyệt 1 qua 2 thì mình trỏ lại chiều mũi tên luôn
 1 <- 2
-và tiếp tục duyệt 2 qua 3
+và tiếp tục duyệt 2 qua 3 cũng đồng thời trỏ lại chiều mũi tên luôn
 1 <- 2 <- 3
 """
 from index import LinkedList
