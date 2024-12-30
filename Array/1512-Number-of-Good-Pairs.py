@@ -18,13 +18,14 @@ class Solution(object):
         #             count += 1
         # return count
 
-        # C2: Hashmap -> O(N)
+        # C2: Hashmap: O(N)
         """
-        Dùng hash map để lưu. VD: [1, 1, 1, 1] -> 6 pairs
-        Put 1 vô hash map.
-        Lần lượt xét từng phần tử 1, mỗi phần tử đều có thể cặp mới each previous, không xét thằng đầu tiên.
-        -> Bỏ 1 vô hash map, mỗi lần gặp 1 thằng thì + vô (đại diện bao nhiêu previous).
-        
+        [1, 1, 1, 1] -> 6 pairs
+        Nhận xét: Khi lần lượt xét từng phần tử 1, mỗi phần tử đều có thể cặp mới each previous, không xét thằng đầu tiên.
+        -> 
+        - Bỏ 1 vô hash map để count frequency, 
+        - Mỗi lần gặp lại 1 thằng thì + với count hiện tại (đại diện có bao nhiêu thằng previous) - 1 (ko xét 
+        thằng đầu tiên init).
         """
         count = 0
         map = {}
