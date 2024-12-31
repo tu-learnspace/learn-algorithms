@@ -18,23 +18,23 @@ def twoSum(nums, target):
     """
     C1: 2 pointers
     """
-    # Tạo indices từ 0 -> len - 1 rồi sort theo value trong nums
-    # vd nums: [3, 2, 4] -> tạo [0, 1, 2] ứng với index của [3, 2, 4] -> sort [1, 0, 2]
-    # vì khi khúc dưới sort nums lại sẽ thành [2, 3, 4] thì [1, 0, 2] tương ứng index cũ trước khi sort
-    # -> trả về đc index cho đề bằng vị trí tương ứng
-    indexes = sorted(range(len(nums)), key=lambda k: nums[k])
-
-    nums.sort()
-    i, j = 0, len(nums) - 1
-    while i < j:
-        if nums[i] + nums[j] > target:
-            j -= 1
-        elif nums[i] + nums[j] < target:
-            i += 1
-        else:
-            return [indexes[i], indexes[j]]
-
-    return [-1, -1]
+    # # Tạo indices từ 0 -> len - 1 rồi sort theo value trong nums
+    # # vd nums: [3, 2, 4] -> tạo [0, 1, 2] ứng với index của [3, 2, 4] -> sort [1, 0, 2]
+    # # vì khi khúc dưới sort nums lại sẽ thành [2, 3, 4] thì [1, 0, 2] tương ứng index cũ trước khi sort
+    # # -> trả về đc index cho đề bằng vị trí tương ứng
+    # indexes = sorted(range(len(nums)), key=lambda k: nums[k])
+    #
+    # nums.sort()
+    # i, j = 0, len(nums) - 1
+    # while i < j:
+    #     if nums[i] + nums[j] > target:
+    #         j -= 1
+    #     elif nums[i] + nums[j] < target:
+    #         i += 1
+    #     else:
+    #         return [indexes[i], indexes[j]]
+    #
+    # return [-1, -1]
 
     """
     C2: Hash map
