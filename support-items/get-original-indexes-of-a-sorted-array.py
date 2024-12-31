@@ -3,12 +3,12 @@ use when we want to sort array, but the question wants index of the array before
 
 e.g:
 before sort:
- 0  1  2  3  4  5
-[2, 3, 1, 4, 5, 3]
+index    0  1  2  3  4  5
+arr     [2, 3, 1, 4, 5, 3]
 
 after sort:
- 2  0  1  5  3  4  <- this
-[1, 2, 3, 3, 4, 5]
+index    2  0  1  5  3  4    <-- we want this
+arr     [1, 2, 3, 3, 4, 5]
 """
 
 # using lambda function
