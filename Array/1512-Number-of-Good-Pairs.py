@@ -35,8 +35,6 @@ class Solution(object):
         return count
 
 
-
-
 if __name__ == '__main__':
     #nums = [1, 2, 3, 1, 1, 3]
     nums = [1, 1, 1, 1]
