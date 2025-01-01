@@ -1,11 +1,14 @@
 """
 https://leetcode.com/problems/valid-anagram/
+# Đề ======
+Cho 2 chuỗi, check xem phải là anagram không. Anagram là chữ xáo trộn vị trí thôi.
+Input: s = "anagram", t = "nagaram"
+Output: true
 
+# Idea: =====
 Dùng frequency map để check, tập dụng luôn 1 map đó. Nếu 2 thằng là anagram thì map phải bằng 0 hết.
 -> 1 string mang đơn vị giá trị dương, string còn lại mang giá trị âm
 """
-
-
 class Solution(object):
     def isAnagram(self, s, t):
         """
@@ -32,7 +35,6 @@ class Solution(object):
             if freq[char] != 0:
                 return False
         return True
-
 
 if __name__ == '__main__':
     s = "anagram"

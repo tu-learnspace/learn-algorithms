@@ -1,9 +1,15 @@
 """
 https://leetcode.com/problems/number-of-good-pairs
+# Đề =======
+Cặp (i, j) là good pair khi nums[i] == nums[j] với i < j
+Input: nums = [1,2,3,1,1,3]
+Output: 4
+Explanation: There are 4 good pairs (0,3), (0,4), (3,4), (2,5) 0-indexed.
 
+# Idea =========
+C1: Duyệt 2 vòng lặp: với mỗi nums[i], ta xét mọi thằng còn lại
+C2: Dùng hashmap.
 """
-
-
 class Solution(object):
     def numIdenticalPairs(self, nums):
         """
@@ -33,7 +39,6 @@ class Solution(object):
             map[n] = map.get(n, 0) + 1
             count += map[n] - 1
         return count
-
 
 if __name__ == '__main__':
     #nums = [1, 2, 3, 1, 1, 3]
