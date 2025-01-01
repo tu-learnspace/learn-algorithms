@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/shortest-word-distance
-
+# Đề =========
 Given an array of strings words and two different strings that already exist in the array word1 and word2, return the
 shortest distance between these two words in the list.
 
@@ -26,7 +26,6 @@ words[i] consists of lowercase English letters.
 word1 and word2 are in words.
 word1 != word2
 """
-
 class Solution(object):
     def shortestDistance(self, words, word1, word2):
         distance = len(words)

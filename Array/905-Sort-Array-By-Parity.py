@@ -1,9 +1,6 @@
 """
 https://leetcode.com/problems/sort-array-by-parity/
-
 """
-
-
 class Solution(object):
     def sortArrayByParity(self, nums):
         """
@@ -18,7 +15,6 @@ class Solution(object):
             else:
                 nums[next_odd], nums[next_even] = nums[next_even], nums[next_odd]
                 next_even -= 1
-
 
 if __name__ == '__main__':
     arr1 = [3, 1, 2, 4]
