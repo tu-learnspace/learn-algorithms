@@ -3,8 +3,6 @@ https://leetcode.com/problems/sqrtx
 
 Căn x sẽ nhỏ hơn x/2 (trong khúc x -> x/2)
 """
-
-
 class Solution(object):
     def mySqrt(self, x):
         """
@@ -13,6 +11,7 @@ class Solution(object):
         """
         if x < 2:
             return x    # sqrt(0) = 0, sqrt(1) = 1
+
         left, right = 2, x // 2
         while left <= right:
             mid = left + (right - left) // 2
@@ -26,7 +25,6 @@ class Solution(object):
                 return mid
         # đề kêu làm tròn lên
         return right
-
 
 if __name__ == '__main__':
     #x = 8
