@@ -25,6 +25,10 @@ Constraints:
 words[i] consists of lowercase English letters.
 word1 and word2 are in words.
 word1 != word2
+
+# Idea ======
+Dùng 2 con trỏ để indicate vị trí của 2 từ. Khi nào con trỏ có vị trí thì tính độ dài để cuối cùng ra min.
+Vì cứ duyệt nên nếu tìm được thêm thì distance sẽ min, khỏi lo (tìm max mới khó).
 """
 class Solution(object):
     def shortestDistance(self, words, word1, word2):

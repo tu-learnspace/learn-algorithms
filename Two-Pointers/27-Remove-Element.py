@@ -34,7 +34,6 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        sorted(nums)
         next_non_removed = 0
         for i in range(len(nums)):
             if nums[i] != val:
