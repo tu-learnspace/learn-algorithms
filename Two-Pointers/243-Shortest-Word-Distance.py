@@ -28,7 +28,7 @@ word1 != word2
 
 # Idea ======
 Dùng 2 con trỏ để indicate vị trí của 2 từ. Khi nào con trỏ có vị trí thì tính độ dài để cuối cùng ra min.
-Vì cứ duyệt từ i nhỏ tới lớn nên ko lo nếu bị gặp lại string (nếu tìm được thêm thì distance sẽ min đi thôi).
+Note: Ko lo nếu bị gặp lại string vì cứ duyệt từ i nhỏ tới lớn nên nếu tìm được thêm thì distance cũng sẽ càng min đi thôi.
 """
 class Solution(object):
     def shortestDistance(self, words, word1, word2):
