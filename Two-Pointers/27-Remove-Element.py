@@ -9,9 +9,9 @@ Note that the five elements can be returned in any order.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 
 # Idea =====
-Version dễ hơn của LC-26, ý tưởng giống: ngoài con trỏ duyệt, xài 1 con trỏ để giữ vị trí cho next-non-deleted.
+Ý tưởng giống LC-26: ngoài con trỏ duyệt, xài 1 con trỏ để giữ vị trí cho next-non-deleted.
 Note that đề không quan tâm của các element còn lại, vì cách trên sẽ không loại bỏ hoàn toàn các phần tử cuối = val,
-nhưng nó sẽ chắc chắn các phần tử đầu khác val.
+nhưng nó sẽ chắc chắn TẤT CẢ các phần tử đầu khác val.
 
 Vd: val=2, i để duyệt, j để giữ vị trí
  ij
