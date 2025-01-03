@@ -23,13 +23,16 @@ class Solution(object):
                 j += 1
         return nums
 
-        # next_odd, next_even = 0, len(nums) - 1
-        # while next_odd < next_even:
-        #     if nums[next_odd] % 2 == 0:
-        #         next_odd += 1
+        """
+        C2: cũng là 2 con trỏ nhưng mà ở 2 đầu.
+        """
+        # next_even, next_odd = 0, len(nums) - 1
+        # while next_even < next_odd:
+        #     if nums[next_even] % 2 == 0:
+        #         next_even += 1
         #     else:
-        #         nums[next_odd], nums[next_even] = nums[next_even], nums[next_odd]
-        #         next_even -= 1
+        #         nums[next_even], nums[next_odd] = nums[next_odd], nums[next_even]
+        #         next_odd -= 1
         # return nums
 
 if __name__ == '__main__':
