@@ -1,17 +1,15 @@
 """
 https://leetcode.com/problems/3sum-closest
 Đề ======
-Cho arr of nums & target, tìm bộ 3 số mà sum gần với target nhất. Assume mỗi input chỉ có 1 solution
+Cho arr of nums & target, tìm bộ 3 số mà sum gần với target nhất. Assume mỗi input chỉ có 1 solution.
 Input: nums = [-1,2,1,-4], target = 1
 Output: 2
 Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 
 Idea ======
 Giống 3sum: với 2 i ta dùng 2 pointer left right tiến dần về nhau.
-
 Note rằng đk để lấy min với đk để move con trỏ ko xài chung được. Vì kể cả có tìm thấy min (đk min) thì cũng chưa chắc
 xong nên đk phải là khi tổng vẫn còn bé/lớn hơn target. Vd:
-
  i  l      r
 [2, 5, 6, 7] target = 16 (expected 2+6+7=15)
 mới vô: curr_sum = 2+5+7 = 14 = min_gap (vì ban đầu min = inf) nhưng chưa chắc là done
@@ -24,7 +22,7 @@ class Solution(object):
         :rtype: int
         """
         nums.sort()
-        min_gap = float('inf') # min_gap cần min(target - curr_sum) min nhất có thể
+        min_gap = float('inf')
         result = 0
 
         for i in range(len(nums) - 2):
