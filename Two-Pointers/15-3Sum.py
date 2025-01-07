@@ -31,13 +31,11 @@ class Solution(object):
                 triplets.append([-target, arr[left], arr[right]])
                 left += 1
                 right -= 1
-
                 # skip same element to avoid duplicate triplets
                 while left < right and arr[left] == arr[left - 1]:
                     left += 1
                 while left < right and arr[right] == arr[right + 1]:
                     right -= 1
-
             elif curr_sum < target:
                 left += 1
             else:
@@ -53,7 +51,7 @@ class Solution(object):
         triplets = []
         right = len(nums) - 1
 
-        for i in range(len(nums)):
+        for i in range(len(nums) - 2):
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
             self.twoSum(nums, i + 1, right, -nums[i], triplets)
