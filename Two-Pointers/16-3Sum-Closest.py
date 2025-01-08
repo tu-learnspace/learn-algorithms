@@ -8,11 +8,12 @@ Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 
 Idea ======
 Giống 3sum: với 2 i ta dùng 2 pointer left right tiến dần về nhau.
-Note rằng đk để lấy min với đk để move con trỏ ko xài chung được. Vì kể cả có tìm thấy min (đk min) thì cũng chưa chắc
+
+Note: ĐK để lấy min với ĐK để move con trỏ ko xài chung được. Vì kể cả có tìm thấy min (đk min) thì cũng chưa chắc
 xong nên đk phải là khi tổng vẫn còn bé/lớn hơn target. Vd:
  i  l      r
 [2, 5, 6, 7] target = 16 (expected 2+6+7=15)
-mới vô: curr_sum = 2+5+7 = 14 = min_gap (vì ban đầu min = inf) nhưng chưa chắc là done
+mới vô thì curr_sum = 2+5+7 = 14 (thỏa min_gap vì ban đầu min đc init = inf) nhưng chưa chắc là done.
 """
 class Solution(object):
     def threeSumClosest(self, nums, target):
@@ -32,7 +33,7 @@ class Solution(object):
                 curr_sum = nums[i] + nums[left] + nums[right]
                 curr_gap = abs(target - curr_sum)
 
-                if curr_gap <= min_gap:
+                if curr_gap <= min_gap: # chỗ này mà dùng chung để right -= 1 luôn sẽ bị miss
                     min_gap = curr_gap
                     result = curr_sum
 
