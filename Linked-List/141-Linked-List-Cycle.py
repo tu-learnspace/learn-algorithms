@@ -33,18 +33,12 @@ rùa gặp thỏ: vị trí rùa = vị trí thỏ
 -> nếu tại vị trí đó mà đi thêm a bước nữa, rùa sẽ vào vị trí node bắt đầu của cycle
 
 """
-# ================== LeetCode answer (based on LC simple LL implementation below) ==================
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val, next=None):
         self.val = val
         self.next = next
     def __bool__(self):
-        """Return bool(self)."""
         return self.next is not None
 
 class Solution(object):
@@ -67,7 +61,7 @@ class Solution(object):
         # C2: use 2 pointers
         fast = slow = head
 
-        while fast and fast.next:
+        while fast and fast.next: # while fast is not None and fast.next is not None:
             fast = fast.next.next
             slow = slow.next
             if fast == slow:
