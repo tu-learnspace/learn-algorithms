@@ -1,6 +1,9 @@
 """
 https://leetcode.com/problems/linked-list-cycle/
+Đề ====
+Cho linked list check nếu LL có vòng.
 
+Idea =====
 Cách 1:
 - Dùng set để lưu trữ các node đã duyệt qua. Nếu node nào đã có trong set thì return True
 - Time: O(N)
@@ -30,13 +33,19 @@ rùa gặp thỏ: vị trí rùa = vị trí thỏ
 -> nếu tại vị trí đó mà đi thêm a bước nữa, rùa sẽ vào vị trí node bắt đầu của cycle
 
 """
-
 # ================== LeetCode answer (based on LC simple LL implementation below) ==================
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+    def __bool__(self):
+        """Return bool(self)."""
+        return self.next is not None
 
 class Solution(object):
     def hasCycle(self, head):
@@ -45,25 +54,35 @@ class Solution(object):
         :rtype: bool
         """
         # C1: use set
-        tmp = set()
-
-        while head:
-            if head in tmp:
-                return True
-            tmp.add(head)
-            head = head.next
-
-        return False
-
-        # C2: use 2 pointers
-        # fast = slow = head
+        # seen = set()
         #
-        # while fast and fast.next:
-        #     fast = fast.next.next
-        #     slow = slow.next
-        #     if fast == slow:
+        # while head:
+        #     if head in seen:
         #         return True
+        #     seen.add(head)
+        #     head = head.next
         #
         # return False
 
+        # C2: use 2 pointers
+        fast = slow = head
 
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                return True
+
+        return False
+
+
+if __name__ == '__main__':
+    # head = [3,2,0,-4], pos = 1
+    head = ListNode(3)
+    head.next = ListNode(2)
+    head.next.next = ListNode(0)
+    head.next.next.next = ListNode(-4)
+    head.next.next.next.next = head.next
+
+    res = Solution().hasCycle(head)
+    print(res)

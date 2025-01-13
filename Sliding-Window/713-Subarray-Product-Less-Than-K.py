@@ -1,7 +1,7 @@
 """
 https://leetcode.com/problems/subarray-product-less-than-k
 Đề ======
-Đếm số subarray mà tích các phần tử của nó bé hơn target.
+Đếm số subarray mà tích các phần tử của nó bé hơn target. 1 <= nums[i] <= 1000
 Input: nums = [10,5,2,6], k = 100
 Output: 8
 Explanation: The 8 subarrays that have product less than 100 are:
@@ -9,16 +9,6 @@ Explanation: The 8 subarrays that have product less than 100 are:
 Note that [10, 5, 2] is not included as the product of 100 is not strictly less than k.
 
 Idea ======
-[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]
--> Nếu 5 * 2 * 6 thỏa < target thì các tập con của nó cũng thỏa.
-[10, 5]: [10], [5] -> 2 cách = 2
-[5, 2, 6]: [5, 2], [2, 6], [5], [2], [6] -> 5 cách = 3 + 2
-
-[1,2,3,4] -> 1,2,3,4 / 1,2, 2,3, 3,4 / 1,2,3, 2,3,4 -> 9 cách = 4 + 3 + 2
-[1,2,3,4,5] -> 1,2,3,4,5 / 1,2,3,4,  2,3,4,5, / 1,2,3,  2,3,4, 3,4,5 / 1,2 2,3 3,4, 4,5 -> 5 + 4 + 3 + 2 = 14 cách
-
- i    j
-[10,5,2,6]
 """
 class Solution(object):
     def numSubarrayProductLessThanK(self, nums, k):
@@ -27,6 +17,23 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
+        if k <= 1: # làm sao mà có 2 số nguyên cộng lại = 1 được
+            return 0
+
+        left = 0
+        curr_product = 1
+        count = 0
+
+        for right in range(len(nums)):
+            curr_product *= nums[right]
+
+            while curr_product >= k and left <= right:
+                curr_product /= nums[left]
+                left += 1
+
+            count += right - left + 1
+
+        return count
 
 
 if __name__ == '__main__':
