@@ -24,7 +24,7 @@ Khi con trỏ nhanh approach con trỏ chậm từ đằng sau:
 - Time: O(N)
 - Space: O(1)
 
-Giải thích về cách 2 (??):
+Giải thích về cách 2 (???):
 p1 đi được a bước thì p2 đi được 2a bước. gọi x là số node của p1 đi đc trên vòng
 rùa gặp thỏ: vị trí rùa = vị trí thỏ
 => a + x % b = a + (a + 2x) % b
