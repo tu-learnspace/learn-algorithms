@@ -40,9 +40,6 @@ class ListNode:
     def __init__(self, val, next=None):
         self.val = val
         self.next = next
-    def __bool__(self):
-        return self.next is not None
-
 class Solution(object):
     def hasCycle(self, head):
         """
