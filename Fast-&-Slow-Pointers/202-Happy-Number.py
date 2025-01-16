@@ -72,6 +72,5 @@ class Solution(object):
                 break
         return slow == 1
 
-
 if __name__ == '__main__':
     print(Solution().isHappy(19))
