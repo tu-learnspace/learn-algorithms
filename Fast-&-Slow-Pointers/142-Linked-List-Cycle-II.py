@@ -36,6 +36,35 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
+        # C2
+        # cycle_len = 0
+        # slow = fast = head
+        # while fast and fast.next:
+        #     slow = slow.next
+        #     fast = fast.next.next
+        #     if slow == fast: # cycle detected
+        #         curr = slow
+        #         while True: # calculate the cycle length by đi 1 vòng
+        #             curr = curr.next
+        #             cycle_len += 1
+        #             if curr == slow:
+        #                 break
+        #         break
+        # # Handle edge case: No cycle is found
+        # if fast is None or fast.next is None:
+        #     return None
+        # # Reset to start
+        # slow = fast = head
+        # # Move fast cycle_len node ahead slow
+        # while cycle_len > 0:
+        #     fast = fast.next
+        #     cycle_len -= 1
+        #
+        # while fast != slow:
+        #     fast = fast.next
+        #     slow = slow.next
+        # return slow
+
         # C3: Floyd’s Tortoise and Hare algorithm
         slow = fast = head
         while fast and fast.next:
