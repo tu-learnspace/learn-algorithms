@@ -1,7 +1,7 @@
 """
 https://leetcode.com/problems/linked-list-cycle/
 Đề ====
-Cho linked list check nếu LL có vòng.
+Cho linked list, check nếu LL có vòng.
 
 Idea =====
 Cách 1:
