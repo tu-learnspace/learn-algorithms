@@ -34,8 +34,8 @@ class Solution(object):
         :type head: Optional[ListNode]
         :rtype: bool
         """
-        # if head is None or head.next is None:
-        #     return True
+        if head is None or head.next is None:
+            return True
 
         # 1. find middle.
         slow, fast = head, head
