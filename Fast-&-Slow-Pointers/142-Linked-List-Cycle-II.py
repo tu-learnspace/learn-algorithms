@@ -15,16 +15,18 @@ C3: Floyd’s Tortoise and Hare algorithm
 Học thuộc: sau khi detect vòng xong thì reset slow về vị trí bắt đầu, lúc này slow & fast tếp tục move 1 node. Khi gặp nhau,
 chỗ đó là start of cycle.
 
-Chứng minh: p1 đi được a bước thì p2 đi được 2a bước.
-gọi x là số node của p1 đi đc trên vòng. a là quãng đường để tới vòng.
-rùa gặp thỏ: vị trí rùa = vị trí thỏ
-=> a + x % b = a + (a + 2x) % b  // modulo để ra vị trí trong vòng
+Chỉ chứng minh được bằng toán học: khi fast & slow gặp nhau ở trong vòng (fast đã đi hết vài vòng).
+Gọi a là số bước cần đi tới vòng, b là số bước trong vòng tới điểm gặp nhau.
+Vì slow đi được a bước thì fast đi được 2a bước. Gọi x là quãng đường của fast đi đc trên vòng. a là quãng đường để tới vòng.
+Fast gặp slow: vị trí fast = vị trí slow
+=> a + x % b = a + (a + 2x) % b  // modulo để ra vị trí trong vòng, ko modulo a vì lúc đó chưa vô vòng
 => x % b = (a + 2x) % b
 => (a + 2x - x) = k * b
-=> a + x = k * b (k là số nguyên)
+=> a + x = kb (k là số nguyên)
 => x = -a + kb
--> Rùa và thỏ gặp nhau tại tọa độ x
--> Chọn k nhỏ nhất cho x có nghĩa -> Nếu tại vị trí đó mà đi thêm a bước nữa, rùa sẽ vào vị trí node bắt đầu của cycle
+=> x = -a (Chọn k nhỏ nhất cho x có nghĩa)
+-> Nghĩa là lần gặp gần nhất tiếp theo sẽ ở vị trí đó mà đi thêm a bước nữa. Mà a lại bằng khoảng cách từ head tới vòng luôn.
+-> Cho nên sau khi detect điểm gặp nhau, ta cho head đi tiếp (slow cũng đi) cho đến khi gặp nhau (ensure đc vị trí đó ở đầu vòng luôn).
 """
 class ListNode(object):
     def __init__(self, x):
@@ -72,6 +74,7 @@ class Solution(object):
             fast = fast.next.next
             if slow == fast:
                 break
+
         # No cycle is found
         if fast is None or fast.next is None:
             return None
