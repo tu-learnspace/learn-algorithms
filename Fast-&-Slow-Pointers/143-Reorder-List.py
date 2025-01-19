@@ -72,5 +72,5 @@ if __name__ == '__main__':
     head.next.next.next.next = ListNode(5)
     Solution().reorderList(head)
     while head:
-        print(head.val, end='-> ')
+        print(head.val, end=' -> ')
         head = head.next
