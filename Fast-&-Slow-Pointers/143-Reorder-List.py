@@ -8,26 +8,19 @@ Input: head = [1,2,3,4,5]
 Output: [1,5,2,4,3]
 
 Idea =========
-1 -> 2 -> 3 -> 4 -> 5
 Dùng fast slow pointer tìm middle, được 2 halves:
-1 -> 2 -> 3
-3 -> 4 -> 5
+1 -> 2 -> 3 -> 4 -> 5
+          s
 
 Reserve second half:
-3 -> 4 -> 5 -> null to null <- 3 <- 4 <- 5
-
+1 -> 2 -> 3 <- 4 <- 5
+          |
+         null
 Combine:
+f
 1 -> 2 -> 3 -> null
-   5 -> 4 -> 3 -> null
-
-tmp1 = 2
-tmp2 = 4
-          f
-1 -> 5 -> 2 -> 3 -> null
-s
-4 -> 3 ->
-
-=> 1 -> 5 -> 2 -> 4 -> 3
+   4 -> 5 -> 3 -> null
+   s
 """
 class ListNode(object):
     def __init__(self, val=0, next=None):
@@ -39,6 +32,9 @@ class Solution(object):
         :type head: Optional[ListNode]
         :rtype: None Do not return anything, modify head in-place instead.
         """
+        if head is None or head.next is None:
+            return head
+
         # find middle
         fast, slow = head, head
         while fast and fast.next:
@@ -53,35 +49,19 @@ class Solution(object):
             prev = slow
             slow = tmp
 
-        """
-Combine:
-1 -> 2 -> 3 -> null
-   5 -> 4 -> 3 -> null
-
-tmp1 = 2
-tmp2 = 4
-               f
-1 -> 5 -> 2 -> 3 -> null
-     s
-4 -> 3 -> null
-
-=> 1 -> 5 -> 2 -> 4 -> 3
-
-        """
+        # combine
         fast, slow = head, prev
-        print('zz', slow.val)
-        while fast.next:
-            print('====')
-            tmp = fast.next
-            print('tmp ', tmp.val)
-            tmp2 = slow.next
-            print('tmp2 ', tmp2.val)
-
+        while slow.next:
+            # temp var for moving next
+            next_fast = fast.next
+            next_slow = slow.next
+            # swap
             fast.next = slow
-            slow.next = tmp
+            slow.next = next_fast
+            # moving next
+            fast = next_fast
+            slow = next_slow
 
-            fast = tmp
-            slow = tmp2
 
 
 if __name__ == '__main__':
@@ -91,7 +71,6 @@ if __name__ == '__main__':
     head.next.next.next = ListNode(4)
     head.next.next.next.next = ListNode(5)
     Solution().reorderList(head)
-    print('RESS')
-    while head.next:
+    while head:
         print(head.val, end='-> ')
         head = head.next
