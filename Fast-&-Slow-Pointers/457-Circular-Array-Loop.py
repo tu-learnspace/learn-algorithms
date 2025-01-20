@@ -29,35 +29,49 @@ nếu khác chiều break ngay.
 - Để check cycle phải có hơn 1 element: nếu next element là the same current thì break luôn.
 
 Optimize: cách trên thì với mỗi nums[i] sẽ duyệt mọi node khác để tìm vòng -> O(N^2)
-Nhận xét, nếu 1 node đã đc duyệt qua (visited) mà nó ko trả về kết quả có vòng, thì có nghĩa nếu lần sau giả sử có đi vô
+Nhận xét: nếu 1 node đã đc duyệt qua (visited) mà nó ko trả về kết quả có vòng, thì có nghĩa nếu lần sau giả sử có đi vô
 cái node đó thì cũng sẽ ko thể nào có vòng (sẽ đi same path).
--> Dùng 1 mảng visited để check element đó đã đi qua chưa, nếu rồi thì skip trong mỗi lần duyệt i tiếp theo.
--> Lúc này node đã đc duyệt sẽ ko bị duyệt lại -> O(N)
+-> Dùng 1 mảng visited để check element đó đã đi qua chưa, nếu rồi thì skip trong mỗi lần duyệt i tiếp theo. Node đã đc duyệt sẽ ko bị duyệt lại.
+-> Time: O(N) (nhưng space từ O(1) thành O(N))
 """
 class Solution(object):
-    # Return curr_pos.next. If not qualified, return -1
+    # Return next position. If not qualified, return -1
     def findNextIndex(self, arr, curr_pos, is_forward):
         curr_direction = arr[curr_pos] >= 0
-        # Các next step ko cùng hướng với nums[i]
-        if is_forward != curr_direction:
+
+        if is_forward != curr_direction:  # Các next step ko cùng hướng với nums[i]
             return -1
 
         next_pos = (curr_pos + arr[curr_pos]) % len(arr)
 
-        # Cycle 1 element
-        if next_pos == curr_pos:
+        if next_pos == curr_pos: # Cycle 1 element
             return -1
         return next_pos
+
+    # For optimization: mark all elements of a fully traversed path to skip them in future iterations
+    def markVisited(self, arr, i, is_forward, visited):
+        curr_pos = i
+        while True:
+            visited[curr_pos] = True
+            next_pos = self.findNextIndex(arr, curr_pos, is_forward)
+            if next_pos == - 1 or visited[next_pos]:
+                break
+            curr_pos = next_pos
 
     def circularArrayLoop(self, nums):
         """
         :type nums: List[int]
         :rtype: bool
         """
-        for i in range(len(nums)):
+        n = len(nums)
+        visited = [False] * n
+
+        for i in range(n):
+            if visited[i]:
+                continue
+
             fast, slow = i, i
             is_forward = nums[i] >= 0
-
             while True:
                 slow = self.findNextIndex(nums, slow, is_forward)
                 fast = self.findNextIndex(nums, fast, is_forward)
@@ -68,12 +82,17 @@ class Solution(object):
                     break # break chứ ko có return để check phía sau biết đâu còn
                 if slow == fast:
                     return True
+
+            # Mark visited cho mọi element trong path từ nums[i]
+            # Note: phải mark sau khi duyệt path xong xuôi (chứ đang duyệt mà mark thì interrupt sao)
+            self.markVisited(nums, i, is_forward, visited)
+
         return False
 
 if __name__ == '__main__':
     # arr = [1, 2, -1, 2, 2]
     # arr = [2, 1, -1, -2]
-    # arr = [1,-1,5,1,4]
-    arr = [-1,-2,-3,-4,-5,6]
+    # arr = [1, -1, 5, 1, 4]
+    arr = [-1, -2, -3, -4, -5, 6]
     res = Solution().circularArrayLoop(arr)
     print(res)
