@@ -67,11 +67,11 @@ class Solution(object):
         visited = [False] * n
 
         for i in range(n):
-            if visited[i]:
-                continue
+            if visited[i]: continue
 
             fast, slow = i, i
             is_forward = nums[i] >= 0
+
             while True:
                 slow = self.findNextIndex(nums, slow, is_forward)
                 fast = self.findNextIndex(nums, fast, is_forward)
