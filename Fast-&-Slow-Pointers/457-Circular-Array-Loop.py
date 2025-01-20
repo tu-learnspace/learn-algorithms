@@ -82,7 +82,6 @@ class Solution(object):
                     break # break chứ ko có return để check phía sau biết đâu còn
                 if slow == fast:
                     return True
-
             # Mark visited cho mọi element trong path từ nums[i]
             # Note: phải mark sau khi duyệt path xong xuôi (chứ đang duyệt mà mark thì interrupt sao)
             self.markVisited(nums, i, is_forward, visited)
