@@ -37,8 +37,10 @@ C2: Như bài linked list cycle:
 - Nếu là happy number thì lặp trong cycle của toàn số 1.
 - Nếu k là happy number thì lặp trong cycle của 1 dãy số nào đó.
 
-Tips: Để tách digit của 1 số thì dùng div // để lấy n còn lại sau khi chia lấy digit và mod % để lấy digit.
-Có thể dùng luôn hàm built in divmod -> trả về 2 giá trị: phần nguyên và phần dư
+Tips: Để tách digit của 1 số thì dùng:
+- Floor di // (là làm tròn xuống) để lấy n còn lại sau khi chia lấy digit.
+- Modulo % để lấy digit.
+- Hoặc có thể dùng luôn hàm built-in divmod -> trả về 2 giá trị: phần nguyên và phần dư
 VD: divmod(10, 3) = <3, 1> (10 // 3 = 3, 10 % 3 = 1)
 """
 class Solution(object):
