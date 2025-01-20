@@ -22,10 +22,33 @@ Explanation: có 3 cycle ở đây:
 
 Idea ======
 Ở vd 3, cycle có thể ở bất cứ element nào -> phải duyệt all, mỗi element check for cycle.
+- Khi array là circular thì để tìm index thì dùng modulo.
+- Để check cycle thì dùng fast, slow pointer: fast sẽ nhảy 2 lần, slow nhảy 1 lần.
+- Để check cycle đó ko bị 2 hướng thì tất cả các số phải cùng dương/âm -> dùng 1 biến store direction tại i để check,
+nếu khác chiều break ngay.
+- Để check cycle phải có hơn 1 element: nếu next element là the same current thì break luôn.
 
-1 2 -1 2 2
+Optimize: cách trên thì với mỗi nums[i] sẽ duyệt mọi node khác để tìm vòng -> O(N^2)
+Nhận xét, nếu 1 node đã đc duyệt qua (visited) mà nó ko trả về kết quả có vòng, thì có nghĩa nếu lần sau giả sử có đi vô
+cái node đó thì cũng sẽ ko thể nào có vòng (sẽ đi same path).
+-> Dùng 1 mảng visited để check element đó đã đi qua chưa, nếu rồi thì skip trong mỗi lần duyệt i tiếp theo.
+-> Lúc này node đã đc duyệt sẽ ko bị duyệt lại -> O(N)
 """
 class Solution(object):
+    # Return curr_pos.next. If not qualified, return -1
+    def findNextIndex(self, arr, curr_pos, is_forward):
+        curr_direction = arr[curr_pos] >= 0
+        # Các next step ko cùng hướng với nums[i]
+        if is_forward != curr_direction:
+            return -1
+
+        next_pos = (curr_pos + arr[curr_pos]) % len(arr)
+
+        # Cycle 1 element
+        if next_pos == curr_pos:
+            return -1
+        return next_pos
+
     def circularArrayLoop(self, nums):
         """
         :type nums: List[int]
@@ -36,17 +59,21 @@ class Solution(object):
             is_forward = nums[i] >= 0
 
             while True:
-                slow = (slow + nums[slow]) // len(nums)
-                fast = (fast + nums[fast]) // len(nums)
+                slow = self.findNextIndex(nums, slow, is_forward)
+                fast = self.findNextIndex(nums, fast, is_forward)
+                if fast != -1:
+                    fast = self.findNextIndex(nums, fast, is_forward)
 
-
-                fast = (fast + nums[fast]) // len(nums)
-
-
-
+                if slow == -1 or fast == -1:
+                    break # break chứ ko có return để check phía sau biết đâu còn
+                if slow == fast:
+                    return True
+        return False
 
 if __name__ == '__main__':
     # arr = [1, 2, -1, 2, 2]
-    arr = [2, 1, -1, -2]
+    # arr = [2, 1, -1, -2]
+    # arr = [1,-1,5,1,4]
+    arr = [-1,-2,-3,-4,-5,6]
     res = Solution().circularArrayLoop(arr)
     print(res)
