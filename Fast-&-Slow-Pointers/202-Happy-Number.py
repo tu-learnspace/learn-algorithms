@@ -69,7 +69,8 @@ class Solution(object):
         slow = fast = n
         while True:
             slow = self.square_sum(slow)  # move one step
-            fast = self.square_sum(self.square_sum(fast))  # move two steps
+            fast = self.square_sum(fast)
+            fast = self.square_sum(fast)  # move two steps
             if slow == fast:  # found the cycle
                 break
         return slow == 1
