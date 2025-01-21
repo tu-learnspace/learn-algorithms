@@ -23,16 +23,16 @@ class Solution(object):
         """
         start = 0
         max_sum = float('-inf')
-        sum = 0
+        curr_sum = 0
 
         for end in range(len(nums)):
-            sum += nums[end]
+            curr_sum += nums[end]
 
             if end - start > k - 1:
-                sum -= nums[start]
+                curr_sum -= nums[start]
                 start += 1
 
-            max_sum = max(max_sum, sum)
+            max_sum = max(max_sum, curr_sum)
 
         return max_sum
 
