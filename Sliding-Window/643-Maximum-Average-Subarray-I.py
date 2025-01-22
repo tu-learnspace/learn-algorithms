@@ -31,23 +31,6 @@ class Solution(object):
 
         return max_sum / float(k)
 
-        # # C2
-        # n = len(nums)
-        #
-        # window_sum = max_sum = sum(nums[:k])
-        # print('window', window_sum)
-        #
-        # for i in range(n-k):
-        #     window_sum = window_sum - nums[i] + nums[i+k]
-        #
-        #     if window_sum > max_sum:
-        #         max_sum = window_sum
-        #
-        # print('max sum', max_sum)
-        # return max_sum/float(k)
-
-
-
 if __name__ == '__main__':
     # nums = [1, 12, -5, -6, 50, 3]
     # k = 4
@@ -60,5 +43,5 @@ if __name__ == '__main__':
      -1938, 3348, 4099, 3591, 9076, 942, 4571, -4200, 7271, -6920, -1886, 662, 7844, 3658, -6562, -2106, -296, -3280,
      8909, -8352, -9413, 3513, 1352, -8825]
     k = 90
-    res2 = Solution().findMaxAverage(nums, k)
-    print(res2)
+    res = Solution().findMaxAverage(nums, k)
+    print(res)
