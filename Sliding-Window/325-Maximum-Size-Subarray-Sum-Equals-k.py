@@ -27,12 +27,11 @@ class Solution(object):
 
         for end in range(len(nums)):
             curr_sum += nums[end]
-
-            if end - start > k - 1:
+            # Chỉ slide window khi vượt limit size k
+            if end >= k - 1:
+                max_sum = max(max_sum, curr_sum)
                 curr_sum -= nums[start]
                 start += 1
-
-            max_sum = max(max_sum, curr_sum)
 
         return max_sum
 
