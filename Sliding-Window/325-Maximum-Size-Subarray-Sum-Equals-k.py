@@ -27,7 +27,7 @@ class Solution(object):
 
         for end in range(len(nums)):
             curr_sum += nums[end]
-            # Chỉ slide window khi vượt limit size k
+            # Chỉ slide window khi vượt limit size k. Ta adjust lại 1 đơn vị để end luôn = k - 1.
             if end >= k - 1:
                 max_sum = max(max_sum, curr_sum)
                 curr_sum -= nums[start]
