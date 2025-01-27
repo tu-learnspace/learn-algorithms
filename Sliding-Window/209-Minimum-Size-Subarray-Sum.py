@@ -9,7 +9,7 @@ Explanation: The subarray [4,3] has the minimal length under the problem constra
 
 Idea ==========
 Dùng 2 con trỏ tạo sliding windows move dần, khi nào sum >= target thì update min. Do subarray là contiguous nên đảm bảo
-được không miss element.
+được không miss element. ge
 """
 class Solution(object):
     def minSubArrayLen(self, target, nums):
