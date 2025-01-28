@@ -8,8 +8,9 @@ Output: 2
 Explanation: The subarray [4,3] has the minimal length under the problem constraint.
 
 Idea ==========
-Dùng 2 con trỏ tạo sliding windows move dần, khi nào sum >= target thì update min. Do subarray là contiguous nên đảm bảo
-được không miss element. ge
+Dùng 2 con trỏ tạo sliding windows move dần, khi nào sum >= target thì update min.
+Sau đó, ta cứ shrink array 1 đơn vị ở bên trái xem còn thỏa không.
+(Do subarray là contiguous nên đảm bảo được không miss element).
 """
 class Solution(object):
     def minSubArrayLen(self, target, nums):
@@ -23,13 +24,14 @@ class Solution(object):
         for end in range(len(nums)):
             curr_sum += nums[end]
 
-            if curr_sum >= target:
+            while curr_sum >= target:
                 curr_len = end - start + 1
-                print('end ', end, '- start ', start, ' - len', curr_len)
                 min_len = min(min_len, curr_len)
                 curr_sum -= nums[start]
                 start += 1
 
+        if min_len == float('inf'):
+            return 0
         return min_len
 
 if __name__ == '__main__':
