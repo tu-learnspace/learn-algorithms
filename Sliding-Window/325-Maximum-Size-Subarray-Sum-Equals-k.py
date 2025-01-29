@@ -8,7 +8,7 @@ Output: 9
 Explanation: Subarray with maximum sum is [5, 1, 3].
 
 Idea ======
-Dùng sliding window. Vd:
+Dùng sliding window: move dần bên phải, shrink 1 bên trái nếu gặp điều kiện.
 2, 1, 5, 1, 3, 2
 s     e
    s     e
