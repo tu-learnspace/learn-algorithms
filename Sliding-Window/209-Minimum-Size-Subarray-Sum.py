@@ -8,8 +8,9 @@ Output: 2
 Explanation: The subarray [4,3] has the minimal length under the problem constraint.
 
 Idea ==========
-Dùng 2 con trỏ tạo sliding windows move dần, khi nào sum >= target thì update min.
-Sau đó, ta cứ shrink array 1 đơn vị ở bên trái xem còn thỏa không.
+Sliding windows: expand 1 đơn vị from right, shrink 1 đơn vị from left.
+- Move con trỏ duyệt dần bên phải, khi nào sum >= target thì update min, lúc này ta thử shrink array 1 đơn vị ở bên trái
+để xem còn thỏa không.
 (Do subarray là contiguous nên đảm bảo được không miss element).
 """
 class Solution(object):
