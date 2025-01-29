@@ -8,7 +8,9 @@ Output: 12.75000
 Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
 
 Idea ========
-Sliding window. Max average = max sum / len -> chỉ cần tính max sum là được vì len ko đổi.
+Sliding window.
+Đề kêu tìm max average = max sum / len -> chỉ cần tính max sum là được vì len ko đổi.
+
 Note: In Python 2: 5 / 2 gives 2 (integer result). In Python 3: 5 / 2 gives 2.5 (float result).
 -> Use float(k) instead of k.
 """
