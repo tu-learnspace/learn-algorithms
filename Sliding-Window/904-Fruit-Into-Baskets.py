@@ -29,7 +29,7 @@ class Solution(object):
         :rtype: int
         """
         fruits_frequency = {}
-        start, count = 0, 0
+        start = 0
         max_fruits = float('-inf')
 
         for end in range(len(fruits)):
@@ -37,17 +37,15 @@ class Solution(object):
                 fruits_frequency[fruits[end]] = 0
 
             fruits_frequency[fruits[end]] += 1
-            count += 1
 
             while len(fruits_frequency) > 2:
                 fruits_frequency[fruits[start]] -= 1
-                count -= 1
                 if fruits_frequency[fruits[start]] == 0:
                     del fruits_frequency[fruits[start]]
 
                 start += 1
 
-            max_fruits = max(max_fruits, count)
+            max_fruits = max(max_fruits, end - start + 1)
 
         return max_fruits
 
