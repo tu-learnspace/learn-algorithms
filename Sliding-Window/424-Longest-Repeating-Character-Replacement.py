@@ -12,8 +12,13 @@ Output: 3
 Explanation: Replace the 'b' or 'd' with 'c' to have the longest repeating substring "ccc".
 
 Idea =======
-Init windows subarray, đếm max repeated char trong window đó. -> số còn lại là số char ta được replace đi.
+Dùng sliding windows.
+Điều kiện để shrink: đếm max repeated char trong window đó. -> số còn lại là số char ta được replace đi.
 số còn lại này ko được vượt quá k -> nếu vượt quá thì ta shrink lại.
+
+k = 2
+  .       .
+a a b c c b b
 """
 class Solution(object):
     def characterReplacement(self, s, k):
@@ -21,12 +26,6 @@ class Solution(object):
         :type s: str
         :type k: int
         :rtype: int
-        """
-        """
-        k = 2
-        .       .
-        a a b c c b b 
-    
         """
         start = 0
         max_repeated_char, max_len = 0, 0
@@ -40,7 +39,7 @@ class Solution(object):
             max_repeated_char = max(max_repeated_char, char_freq[s[end]])
 
             while end - start + 1 > max_repeated_char + k:
-                char_freq[s[start]] -= 1 # k cần del char_freq[s[start]] khi nó <= 0 vì chỉ dùng nó để update max
+                char_freq[s[start]] -= 1 # k cần del char_freq[s[start]] khi nó == 0 vì chỉ dùng nó để update max
                 start += 1
 
             max_len = max(max_len, end - start + 1)
