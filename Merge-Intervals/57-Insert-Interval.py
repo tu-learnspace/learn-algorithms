@@ -15,15 +15,11 @@ ___________           ________________________
 [0,1] [2,3]   [5,7]   [9,12] [13, 14] [15, 16]
                [6,8]
 - Chỗ cần merge thì có các TH: cứ adjust a và b là thấy được điều kiện thỏa.
-a:    _____
+a:     _____
 b:      ___
 Note rằng, merge xong còn có thể merge tiếp. Vd:
    [5,7] [8,10]
 [4, 12]
-
-Phải thỏa luôn TH chèn vô mà ko merge:
-[1,3]        [6,7] [8,12]
-       [4,5]
 """
 class Solution(object):
     def insert(self, intervals, newInterval):
