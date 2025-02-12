@@ -42,8 +42,7 @@ class Solution(object):
 
         merged_intervals.append(newInterval)
 
-        # ko cần `and newInterval[1] < intervals[i][0]`
-        while i < len(intervals):
+        while i < len(intervals): # ko cần `and newInterval[1] < intervals[i][0]` vì kiểu gì cũng thỏa
             merged_intervals.append(intervals[i])
             i += 1
 
