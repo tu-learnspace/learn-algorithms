@@ -4,7 +4,7 @@ https://leetcode.com/problems/interval-list-intersections
 Merge 2 list interval lại. Mỗi list disjoint và được sorted theo start.
 
 Idea =====
-
+Dùng 2 pointers để duyệt 2 danh sách. Dùng rule: 2 intervals intersect khi start của 1 cái lies trong cái còn lại.
 """
 class Solution(object):
     def intervalIntersection(self, firstList, secondList):
@@ -24,7 +24,7 @@ class Solution(object):
 
             # a:  --    ---
             # b: -----
-            # Cái end trc (bị merge rồi) thì move next
+            # Cái end trc (bị merge rồi) thì đc move next
             if firstList[i][1] < secondList[j][1]:
                 i += 1
             else:
