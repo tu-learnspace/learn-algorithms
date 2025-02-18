@@ -59,7 +59,8 @@ class Solution(object):
             b_start = intervals[i][0]
             b_end = intervals[i][1]
 
-            if b_start <= a_end: # overlap -> merge
+            # Intervals overlap: when start lies in the other interval. -> merge
+            if b_start <= a_end:
                 a_end = max(a_end, b_end)
             else: # ko overlap -> ko merge
                 merged_intervals.append([a_start, a_end])
