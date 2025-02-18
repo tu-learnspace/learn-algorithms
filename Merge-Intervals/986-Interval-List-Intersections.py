@@ -20,7 +20,7 @@ class Solution(object):
             # 1st list overlap 2nd list or vice versa
             if (secondList[j][0] <= firstList[i][0] <= secondList[j][1] or
                     firstList[i][0] <=  secondList[j][0] <= firstList[i][1]):
-                merged_intervals.append([max(firstList[i][0], secondList[j][1]), min(firstList[i][1], secondList[j][1])])
+                merged_intervals.append([max(firstList[i][0], secondList[j][0]), min(firstList[i][1], secondList[j][1])])
 
             # a:  --    ---
             # b: -----
@@ -36,4 +36,4 @@ if __name__ == '__main__':
     firstList = [[0, 2], [5, 10], [13, 23], [24, 25]]
     secondList = [[1, 5], [8, 12], [15, 24], [25, 26]]
     res = Solution().intervalIntersection(firstList, secondList)
-    print(res)
+    print(res) # [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
