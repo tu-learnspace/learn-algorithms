@@ -34,7 +34,7 @@ class Solution(object):
             merged_intervals.append(intervals[i])
             i += 1
 
-        # Merge all intervals that are qualified to merge.
+        # Merge all intervals that are qualified to merge: start của interval nằm trong newInterval
         while i < len(intervals) and newInterval[1] >= intervals[i][0]:
             newInterval[0] = min(newInterval[0], intervals[i][0])
             newInterval[1] = max(newInterval[1], intervals[i][1])
