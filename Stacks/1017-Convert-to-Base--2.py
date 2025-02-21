@@ -20,6 +20,7 @@ class Solution(object):
         :type n: int
         :rtype: str
         """
+        stack = []
 
 
 if __name__ == '__main__':
