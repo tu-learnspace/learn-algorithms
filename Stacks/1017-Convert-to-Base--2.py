@@ -21,6 +21,7 @@ class Solution(object):
         :rtype: str
         """
         stack = []
+        while (n):
 
 
 if __name__ == '__main__':
