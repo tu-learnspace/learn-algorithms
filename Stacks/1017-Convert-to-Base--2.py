@@ -23,5 +23,7 @@ class Solution(object):
         stack = []
         while (n):
 
+            n >>= 1
+
 
 if __name__ == '__main__':
