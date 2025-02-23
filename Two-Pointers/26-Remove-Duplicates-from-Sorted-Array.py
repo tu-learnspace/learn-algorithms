@@ -19,15 +19,15 @@ Vd: i là con duyệt, j là next-non-dup để đánh dấu nên đứng yên �
     j  i
 [0, 0, 1, 1, 1, 2, 2, 3, 3, 4] -> arr[next-non-dup] != arr[i] -> vị trí có phẩn tử k dup nữa
     j  i
-[0, 1, 1, 1, 1, 2, 2, 3, 3, 4] -> swap
+[0, 1, 1, 1, 1, 2, 2, 3, 3, 4] -> copy
        ji
 [0, 1, 1, 1, 1, 2, 2, 3, 3, 4] -> tăng next-non-dup lên
 
 tương tự:
        j        i
-[0, 1, 1, 1, 1, 2, 2, 3, 3, 4]
+[0, 1, 1, 1, 1, 2, 2, 3, 3, 4]  -> arr[next-non-dup] =! arr[i]
        j        i
-[0, 1, 2, 1, 1, 2, 2, 3, 3, 4] -> arr[next-non-dup] = arr[i]
+[0, 1, 2, 1, 1, 2, 2, 3, 3, 4] -> copy
           j     i
 [0, 1, 2, 1, 1, 2, 2, 3, 3, 4] -> tăng next-non-dup lên
 
