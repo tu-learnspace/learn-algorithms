@@ -11,17 +11,19 @@ Duyệt mảng tuần tự nhưng dùng 2 con trỏ:
 - con còn lại giữ chỗ next-non-dup mang ý nghĩa giữ chỗ phần tử tiếp theo ko dup, ta sẽ dùng con trỏ #1 để tìm nó.
 Tìm được thì đưa giá trị #1 (current) vô #2 (slot giữ chỗ) rồi tăng #2 lên 1 (next slot).
 
-Vd: i là con duyệt, j là next-non-dup để đánh dấu nên đứng yên đó thôi, | là phần tử xài để so sánh với i (tự đu theo j)
- |i j
+Vd: i là con duyệt, j là next-non-dup để đánh dấu nên đứng yên đó thôi.
+ i  j
 [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
- |  ij
+    ij
 [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
- |  j  i
-[0, 0, 1, 1, 1, 2, 2, 3, 3, 4] -> arr[next-non-dup] = arr[i]
- |  j  i
+    j  i
+[0, 0, 1, 1, 1, 2, 2, 3, 3, 4] -> arr[next-non-dup] != arr[i] -> vị trí có phẩn tử k dup nữa
+    j  i
+[0, 1, 1, 1, 1, 2, 2, 3, 3, 4] -> swap
+       ji
 [0, 1, 1, 1, 1, 2, 2, 3, 3, 4] -> tăng next-non-dup lên
-    |  ji
-[0, 1, 1, 1, 1, 2, 2, 3, 3, 4]
+
+tương tự:
        j        i
 [0, 1, 1, 1, 1, 2, 2, 3, 3, 4]
        j        i
@@ -29,7 +31,7 @@ Vd: i là con duyệt, j là next-non-dup để đánh dấu nên đứng yên �
           j     i
 [0, 1, 2, 1, 1, 2, 2, 3, 3, 4] -> tăng next-non-dup lên
 
-Note: vì mảng đã sort nên mình đảm bảo được không có vụ bị lặp lại sau khi assign (vì đã gặp phần tử khác rồi, aka phần
+Vì mảng đã sort nên mình đảm bảo được không có vụ bị lặp lại sau khi assign (vì đã gặp phần tử khác rồi, aka phần
 tử lớn hơn nó thì làm gì gặp lại nó nữa).
 """
 class Solution(object):
