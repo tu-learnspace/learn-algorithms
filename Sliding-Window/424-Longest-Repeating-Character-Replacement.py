@@ -12,12 +12,12 @@ Output: 3
 Explanation: Replace the 'b' or 'd' with 'c' to have the longest repeating substring "ccc".
 
 Idea =======
-Dùng sliding windows.
-Điều kiện để shrink: đếm max repeated char trong window đó. -> số còn lại là số char ta được replace đi.
-số còn lại này ko được vượt quá k -> nếu vượt quá thì ta shrink lại.
+Dùng sliding windows: 2 con trỏ, 1 con ở 0, con còn lại duyệt đi.
+Điều kiện để shrink: đếm max repeated char trong window đó (dùng hash map đếm) -> số còn lại là số char ta được replace đi.
+Con số còn lại này ko được vượt quá k -> nếu vượt quá thì ta shrink lại.
 
 k = 2
-  .       .
+.       .     -> curr_len = 5, max repeated char = 2 + k = 2 = 4 => lố rồi, phải shrink left.
 a a b c c b b
 """
 class Solution(object):
