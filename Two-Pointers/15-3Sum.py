@@ -20,8 +20,7 @@ Vd: Với mỗi i ta có 2 sum l & r sao cho arr[l] + arr[r] = -arr[i]
      i  l     r
 [-4,-1,-1,0,1,2]
 
-Để loại bỏ triplets trùng: vì arr đã sort nên với mỗi bộ ba tìm được thì phần tử tiếp theo không giống phía trước thì sẽ không trùng
--> Với mỗi (i,l,r) đang xét, check phần tử hiện tại & phần tử trước nó không giống nhau mới làm.
+Để loại bỏ triplets trùng: với mỗi bộ ba tìm được thì chỉ cần i và i+1 ko trùng thì (i, l, r) ko trùng.
 """
 class Solution(object):
     def twoSum(self, arr, left, right, target, triplets):
