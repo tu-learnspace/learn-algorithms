@@ -32,6 +32,6 @@ class Solution(object):
         return ''.join(str(i) for i in reversed(stack))
 
 if __name__ == '__main__':
-    n = 3
-    res = Solution().baseNeg2(n)
+    num = 3
+    res = Solution().baseNeg2(num)
     print(res)
