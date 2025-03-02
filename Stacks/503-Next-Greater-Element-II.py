@@ -24,6 +24,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+        s = []
+        res = [-1] * len(nums)
+
+        return res
 
 if __name__ == '__main__':
     nums = [4, 5, 2, 25]
