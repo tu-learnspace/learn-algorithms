@@ -2,7 +2,7 @@
 https://leetcode.com/problems/next-greater-element-ii
 Đề =========
 Tìm next greater element của mọi phần tử mảng.
-Next greater element là element tiếp theo lớn hơn trong mảng (theo thứ tự duyệt, có thể circular đc)
+Next greater element là element tiếp theo lớn hơn trong mảng.
 
 Input: nums = [1,2,1]
 Output: [2,-1,2]
@@ -17,6 +17,7 @@ Input: [13, 7, 6, 12]
 Output: [-1, 12, 12, -1]
 
 Idea ========
+Bắt đàu từ cuối vì phần tử cuối k có next greater.
 """
 class Solution(object):
     def nextGreaterElements(self, nums):
