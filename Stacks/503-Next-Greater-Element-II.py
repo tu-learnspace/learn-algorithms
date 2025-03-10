@@ -17,7 +17,10 @@ Input: [13, 7, 6, 12]
 Output: [-1, 12, 12, -1]
 
 Idea ========
-Bắt đàu từ cuối vì phần tử cuối k có next greater.
+Bắt đàu từ cuối vì phần tử cuối k có next greater nên cuối cùng luôn là -1.
+
+[13, 14, 7, 6, 12]
+
 """
 class Solution(object):
     def nextGreaterElements(self, nums):
@@ -27,6 +30,14 @@ class Solution(object):
         """
         s = []
         res = [-1] * len(nums)
+
+        for i in range(len(nums) - 1, -1 , -1):
+            while s and s[-1] <= nums[i]:
+                s.pop()
+
+            if s:
+                res[i] = s[-1]
+            s.append(nums[i])
 
         return res
 
