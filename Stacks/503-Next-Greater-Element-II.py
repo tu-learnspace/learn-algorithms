@@ -18,8 +18,9 @@ Output: [-1, 12, 12, -1]
 
 Idea ========
 Bắt đàu từ cuối vì phần tử cuối k có next greater nên cuối cùng luôn là -1.
-Ta cứ trữ list các phần tử là candidate cho NGE vào stack, tới khi nào gặp 1 phần tử nào có thể lớn hơn cả candidate thì
-cứ pop dần candidate ra.
+Khi duyệt, ta push hết vô stack để check candidate NGE. Tới khi nào gặp 1 phần tử nào lớn hơn cả candidate thì
+cứ pop dần candidate ra. Nếu pop sạch thì coi như k có ai thỏa NGE -> thằng ở top stack sẽ là thằng thỏa (và là newest
+elemet mới đc push vào, aka next element)
 
 [13,14,5,7,6,12]
 [-1,-1,-1,-1,-1]         {12]
