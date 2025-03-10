@@ -18,6 +18,8 @@ Output: [-1, 12, 12, -1]
 
 Idea ========
 Bắt đàu từ cuối vì phần tử cuối k có next greater nên cuối cùng luôn là -1.
+Ta cứ trữ list các phần tử là candidate cho NGE vào stack, tới khi nào gặp 1 phần tử nào có thể lớn hơn cả candidate thì
+cứ pop dần candidate ra.
 
 [13,14,5,7,6,12]
 [-1,-1,-1,-1,-1]         {12]
