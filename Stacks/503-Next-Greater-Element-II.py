@@ -50,13 +50,15 @@ class Solution(object):
         res = [-1] * len(nums)
 
         for i in range(len(nums) - 1, -1 , -1):
+            # pop ra khi top của stack bé hơn curr
             while s and s[-1] <= nums[i]:
                 s.pop()
 
+            # Nếu còn thì top chính là NGE (nếu pop hết luôn thì coi như ko có NGE, để nguyên -1)
             if s:
                 res[i] = s[-1]
+            # Lưu lại curr để check potential NGE
             s.append(nums[i])
-
         return res
 
 if __name__ == '__main__':
