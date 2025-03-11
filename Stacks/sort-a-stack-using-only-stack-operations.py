@@ -17,6 +17,14 @@ The values in the stack are to be sorted in descending order, with the largest e
 
 == Idea
 Dùng 1 stack tạm
+
+
+[34, 3, 31, 98, 92, 23]
+[34, 3]
+Dùng 1 tmp_stack để sort, stack đó để track sorted element.
+Pop element ra khỏi stack ban đầu đưa vào tmp_stack
+
+
 """
 class Solution(object):
     def sortStack(self, s):
