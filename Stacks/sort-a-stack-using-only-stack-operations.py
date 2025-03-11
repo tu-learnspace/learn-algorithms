@@ -16,12 +16,14 @@ The values in the stack are to be sorted in descending order, with the largest e
    Output: [-5, -1, 10, 20]
 
 == Idea
+Dùng 1 stack tạm
 """
 class Solution(object):
-    def sortStack(self,stack):
-        tempStack = []
-        # ToDo: Write Your Code Here.
-        return tempStack
+    def sortStack(self, s):
+        res = []
+
+
+        return res
 
 if __name__ == '__main__':
     stack = [34, 3, 31, 98, 92, 23]
