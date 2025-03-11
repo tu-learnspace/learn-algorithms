@@ -4,11 +4,11 @@ https://leetcode.com/problems/next-greater-element-ii
 Tìm next greater element của mọi phần tử mảng.
 Next greater element là element tiếp theo lớn hơn trong mảng.
 
-Input: nums = [1,2,1]
-Output: [2,-1,2]
-Explanation: The first 1's next greater number is 2;
-The number 2 can't find next greater number.
-The second 1's next greater number needs to search circularly, which is also 2.
+# Input: nums = [1,2,1]
+# Output: [2,-1,2]
+# Explanation: The first 1's next greater number is 2;
+# The number 2 can't find next greater number.
+# The second 1's next greater number needs to search circularly, which is also 2.
 
 Input: [4, 5, 2, 25]
 Output: [5, 25, 25, -1]
@@ -40,6 +40,9 @@ elemet mới đc push vào, aka next element)
 Tương tự, 14 lớn hơn nên cho pop ra hết, empty stack
 [13,14,5, 7, 6, 12]
 [-1,-1,7,12,12,-1]   {14]
+
+
+Version 2: circular array -> x2 array lên để manipulate circular array.
 """
 class Solution(object):
     def nextGreaterElements(self, nums):
