@@ -16,9 +16,11 @@ The values in the stack are to be sorted in descending order, with the largest e
    Output: [-5, -1, 10, 20]
 
 == Idea
-Dùng 1 tmp_stack để sort, stack đó để track sorted element.
-Pop element ra khỏi stack ban đầu đưa vào tmp_stack
+Dùng 1 temp stack để sort, stack đó để track sorted element. Việc sort có thể được done bằng cách liên tục pop element ra
+khỏi input stack rồi push vào temp stack theo thứ tự, cần rearrange element tới khi input stack empty.
 
+Đi từ cuối
+[34, 3, 31, 98, 92, 23] [23]
 
 """
 class Solution(object):
