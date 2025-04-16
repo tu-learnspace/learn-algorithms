@@ -27,7 +27,7 @@ class Solution(object):
         """
         stack = []
         while n:
-            stack.append(n & 1) # remainder
+            stack.append(n & 1) # remainder (& 000..001 -> loại hết trừ thằng bit cuối)
             n = -(n >> 1) # divided by -2
         return ''.join(str(i) for i in reversed(stack))
 
