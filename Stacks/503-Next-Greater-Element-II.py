@@ -53,7 +53,7 @@ class Solution(object):
         s = []
         res = [-1] * len(nums)
 
-        for i in range(len(nums) - 1, -1 , -1):
+        for i in range(len(nums)-1, -1, -1):
             # pop ra khi top của stack bé hơn curr
             while s and s[-1] <= nums[i]:
                 s.pop()
