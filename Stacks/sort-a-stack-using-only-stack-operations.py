@@ -36,9 +36,15 @@ cuối cùng pop 98, 92 rồi push quay lại temp stack
 [34, 3]  [23, 31, 92, 98]
 
 tiếp tục làm tương tự
+
 """
 class Solution(object):
     def sortStack(self, s):
+        """
+        VD: [34, 3, 31, 98, 92, 23]
+
+        """
+
         temp_stack = []
 
         while s:
